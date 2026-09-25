@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>青葉ワークス | 小さな会社の案内サイト見本</title>
+  <style>
+    :root { --bg:#0f1720; --card:#17202b; --line:#2a3848; --text:#e8eef4; --muted:#93a4b5; --accent:#3d9cf0; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Yu Gothic","Meiryo",sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1040px, calc(100% - 40px)); margin:0 auto; }
+    nav { border-bottom:1px solid var(--line); }
+    nav .wrap { display:flex; justify-content:space-between; align-items:center; min-height:64px; }
+    .logo { letter-spacing:.16em; font-weight:700; }
+    nav ul { display:flex; gap:22px; list-style:none; margin:0; padding:0; color:var(--muted); font-size:14px; }
+    .hero { padding:88px 0 64px; }
+    .eyebrow { color:var(--accent); letter-spacing:.2em; font-size:12px; margin:0 0 12px; }
+    h1 { font-size:clamp(28px,4.5vw,46px); margin:0 0 16px; font-weight:700; line-height:1.35; }
+    .lead { color:var(--muted); max-width:34em; }
+    .btn { display:inline-block; margin-top:24px; background:var(--accent); color:#061018; font-weight:700; padding:12px 20px; border-radius:8px; }
+    section { padding:56px 0; border-top:1px solid var(--line); }
+    h2 { margin:0 0 24px; font-size:24px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; }
+    .card h3 { margin:0 0 8px; }
+    .card p { margin:0; color:var(--muted); font-size:14px; }
+    form { display:grid; gap:12px; max-width:480px; }
+    input, textarea { background:#0c131b; border:1px solid var(--line); color:var(--text); padding:10px 12px; border-radius:8px; font:16px "Yu Gothic","Meiryo",sans-serif; }
+    button { border:0; background:var(--accent); color:#061018; font-weight:700; padding:12px; border-radius:8px; cursor:pointer; font-family:inherit; }
+    #thanks { display:none; color:#9fe0b5; }
+    #thanks.show { display:block; }
+    footer { color:var(--muted); font-size:13px; padding:28px 0 40px; }
+    @media (max-width:800px) { nav ul, .grid { display:block; } .grid .card { margin-bottom:12px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="logo" href="#top">AOBA WORKS</a>
+      <ul>
+        <li><a href="#service">サービス</a></li>
+        <li><a href="#flow">進め方</a></li>
+        <li><a href="#contact">相談</a></li>
+      </ul>
+    </div>
+  </nav>
+  <header class="wrap hero" id="top">
+    <p class="eyebrow">FICTIONAL COMPANY SITE</p>
+    <h1>小さな会社の、<br>信頼される案内ページ。</h1>
+    <p class="lead">架空の制作会社「青葉ワークス」のコーポレートサイト見本です。サービス説明・進め方・問い合わせまでを、落ち着いた会社向けの体裁でまとめています。</p>
+    <a class="btn" href="#contact">相談してみる</a>
+  </header>
+  <section id="service">
+    <div class="wrap">
+      <h2>サービス</h2>
+      <div class="grid">
+        <article class="card"><h3>案内サイト</h3><p>店舗や教室の顔になるページ。スマホでも読みやすい幅に合わせます。</p></article>
+        <article class="card"><h3>申し込み画面</h3><p>予約や問い合わせの入力。送信後の案内文まで含めて納品する想定です。</p></article>
+        <article class="card"><h3>改善</h3><p>公開後に文章や並びを直す、小さな改修の受け方も書いてあります。</p></article>
+      </div>
+    </div>
+  </section>
+  <section id="flow">
+    <div class="wrap">
+      <h2>進め方</h2>
+      <div class="grid">
+        <article class="card"><h3>1. 聞く</h3><p>誰に見せたいか、予約が要るか、写真があるかを最初に揃えます。</p></article>
+        <article class="card"><h3>2. 見せる</h3><p>仮の画面を先に渡し、文言を一緒に直します。</p></article>
+        <article class="card"><h3>3. 渡す</h3><p>公開用のファイルと、直し方の短いメモをセットで納品します。</p></article>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="wrap">
+      <h2>相談</h2>
+      <p class="lead">この見本ではメールは飛びません。画面上の受付までです。</p>
+      <form id="form">
+        <input name="name" required placeholder="お名前">
+        <input name="company" placeholder="会社名（任意）">
+        <textarea name="message" required placeholder="相談内容"></textarea>
+        <button type="submit">送る</button>
+      </form>
+      <p id="thanks">受け付けました。本番では担当者へ通知が入ります。</p>
+    </div>
+  </section>
+  <footer><div class="wrap">青葉ワークス（架空の見本） / 仕事用ポートフォリオ</div></footer>
+  <script>
+    const form = document.getElementById("form");
+    const thanks = document.getElementById("thanks");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      form.style.display = "none";
+      thanks.classList.add("show");
+    });
+  </script>
+</body>
+</html>
